@@ -37,7 +37,9 @@
 
   Polymer.WidAnimationMergerBehavior = {
     _mergeAnimation: function (newConfig) {
-      Object.assign(this.animationConfig, newConfig);
+      this.async(function () {
+        Object.assign(this.animationConfig || {}, newConfig);
+      });
     }
   };
 
